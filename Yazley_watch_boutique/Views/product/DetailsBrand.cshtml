@@ -1,0 +1,26 @@
+﻿@model Yazley_watch_boutique.brand
+
+@{
+    ViewBag.Title = "DetailsBrand";
+}
+
+<h2>DetailsBrand</h2>
+
+<div>
+    <h4>brand</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.brandImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brandImage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.brandName }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

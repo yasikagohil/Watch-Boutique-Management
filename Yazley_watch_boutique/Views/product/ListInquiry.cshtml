@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Yazley_watch_boutique.Inquiry>
+
+@{
+    ViewBag.Title = "Customer Inquiries";
+}
+<br />
+<h2>Customer Inquiries</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Email")
+        </th>
+        <th>
+            @Html.DisplayName("City")
+        </th>
+        <th>
+            @Html.DisplayName("Phone")
+        </th>
+        <th>
+            @Html.DisplayName("Product model_no")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product1.model_no)
+        </td>
+    </tr>
+}
+
+</table>

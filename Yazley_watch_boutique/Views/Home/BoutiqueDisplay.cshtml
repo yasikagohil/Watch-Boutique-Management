@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Yazley_watch_boutique.boutique>
+
+@{
+    ViewBag.Title = "BoutiqueDisplay";
+}
+<br />
+<h2>Our Associated Boutiques</h2>
+
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="font-family:'Berlin Sans FB'">
+            <h3> @Html.DisplayFor(modelItem => item.name)</h3>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        
+    </tr>
+}
+
+</table>

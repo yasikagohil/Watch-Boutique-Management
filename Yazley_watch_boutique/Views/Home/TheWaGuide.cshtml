@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Yazley_watch_boutique.thewatchguide>
+
+@{
+    ViewBag.Title = "TheWatchGuide";
+}
+<br /><br />
+<h2>The Watch Guide</h2>
+
+<table class="table">
+    <tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <table>
+                <tr>
+                    <td>
+                        <img src="@Url.Content(item.image)" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                   
+                    <td style="float:right">
+                        @Html.DisplayFor(modelItem => item.date)
+                    </td></tr>
+                    <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </tr>
+    </table>
+
+    </tr>
+}
+
+    </table>

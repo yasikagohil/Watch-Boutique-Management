@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Yazley_watch_boutique.product>
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.model_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.collection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayName("Brand");
+        </th>
+        <th>
+            @Html.DisplayName("Calibre");
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.model_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productName)
+        </td>
+        <td>
+            <img src="@Url.Content(@item.productImage)" height="300" width="300"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.collection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brand1.brandName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.calibre.brand)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.productId }) </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.productId })</td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.productId })
+        </td>
+    </tr>
+}
+
+</table>

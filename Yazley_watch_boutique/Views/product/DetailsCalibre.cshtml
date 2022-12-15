@@ -1,0 +1,73 @@
+﻿@model Yazley_watch_boutique.calibre
+
+@{
+    ViewBag.Title = "Details of Calibre";
+}
+<br />
+<h2>Details of Calibre</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Brand")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Reference")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reference)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Movement")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.movement)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Display")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.display)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Power reserve")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.power_reserve)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Jewells")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jewells)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Frequency")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.frequency)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.calibreId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

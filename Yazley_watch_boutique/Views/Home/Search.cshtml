@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+<center>
+    <br /><br /><br /><br /><br />
+    <h2>What are you looking for??</h2><br />
+    @using (Html.BeginForm("search_display", "Home", FormMethod.Get))
+    { 
+    @Html.TextBox("search")<input type="submit" value="Search" class="btn btn-default"/><br /><br />
+    @Html.ActionLink("Back","Index","Home")
+    }
+</center>

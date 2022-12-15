@@ -1,0 +1,30 @@
+﻿
+
+@{
+    ViewBag.Title = "Manage Yazley";
+}
+
+
+
+<div class="jumbotron">
+    <img src="@Url.Content("~/img/yaz_logo.png")" width="100%" height="300" />
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Watches For Men</h2>
+        <img src="@Url.Content("~/img/men_dis.jpg")" width="350" height="300" />
+        @Html.ActionLink("Manage >>", "display", new { gender = "Men" })
+    </div>
+    <div class="col-md-4">
+        <h2>Watches for Women</h2>
+        <img src="@Url.Content("~/img/women_display.jpg")" width="350" height="300" />
+        @Html.ActionLink("Manage >>", "display", new { gender = "Men" })
+    </div>
+    <div class="col-md-4">
+        <h2>Accessories</h2>
+        <img src="@Url.Content("~/img/asse_display.jpeg")" width="350" height="300" />
+        @Html.ActionLink("Manage >>", "cat_display", new { category = "assesories" })
+    </div>
+</div>
+

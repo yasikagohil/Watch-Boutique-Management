@@ -1,0 +1,40 @@
+﻿@model Yazley_watch_boutique.thewatchguide
+
+@{
+    ViewBag.Title = "The Watch Guide";
+}
+<br />
+<span style="float:right; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:xx-large">
+    <span style="float:left; color:maroon; font-family:'Lucida Handwriting';font-size:xx-large "> @Html.DisplayFor(model => model.category)   <i class="fa fa-minus" style="font-size:10px;"></i></span>
+    @Html.DisplayFor(model=>model.title)
+</span>
+
+<div>
+    <hr />
+
+    <table>
+        <tr>
+            <td>
+                <img src="@Url.Content(Model.image)" width="100%" height="400" />
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td>
+                <h4><b><span style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; float:left"> @Html.DisplayFor(model => model.writer)</span><span style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; float:right"> @Html.DisplayFor(model => model.date)</span></b></h4>
+            </td>
+        </tr>
+        <tr><td><span></span></td></tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <span style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:medium">@Html.DisplayFor(model => model.description)</span>
+            </td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Back", "TWG")
+</p>

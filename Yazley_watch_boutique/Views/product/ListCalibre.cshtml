@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Yazley_watch_boutique.calibre>
+
+@{
+    ViewBag.Title = "ListCalibre";
+}
+<br />
+<h2>List of Calibre</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateCalibre")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Brand")
+        </th>
+        <th>
+            @Html.DisplayName("")
+        </th>
+        <th>
+            @Html.DisplayName("Reference")
+        </th>
+        <th>
+            @Html.DisplayName("Movement")
+        </th>
+        <th>
+            @Html.DisplayName("Display")
+        </th>
+        <th>
+            @Html.DisplayName("Power_reserve")
+        </th>
+        <th>
+            @Html.DisplayName("Jewells")
+        </th>
+        <th>
+            @Html.DisplayName("Frequency")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reference)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.movement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.display)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.power_reserve)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jewells)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.frequency)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditCalibre", new { id=item.calibreId }) |
+            @Html.ActionLink("Details", "DetailsCalibre", new { id=item.calibreId }) |
+            @Html.ActionLink("Delete", "DeleteCalibre", new { id=item.calibreId })
+        </td>
+    </tr>
+}
+
+</table>

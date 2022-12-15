@@ -1,0 +1,235 @@
+﻿@{
+    ViewBag.Title = "Yazley";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            height: 2px;
+            width: 50px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 30%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 5s;
+            animation-name: fade;
+            animation-duration: 5s;
+        }
+
+        @@-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @@keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* On smaller screens, decrease text size */
+        @@media only screen and (max-width: 300px) {
+            .text {
+                font-size: 11px
+            }
+        }
+    </style>
+</head>
+<body>
+    <br /><br />
+   
+          <div class="slideshow-container">
+              <div class="mySlides fade">
+                  <div class="numbertext">1 / 4</div>
+                  <img src="@Url.Content("~/img/yaz_logo.png")" width="100%" height="300" />
+                  <div class="text">Yazley Watch Boutique</div>
+              </div>
+
+              <div class="mySlides fade">
+                  <div class="numbertext">2 / 4</div>
+                  <img src="@Url.Content("~/img/1539272720453-A-List_Best-Outdoor-Adventure-Watches.jpeg")" width="100%" height="300" />
+                  <div class="text">The Best Watches For Adventure</div>
+              </div>
+
+              <div class="mySlides fade">
+                  <div class="numbertext">3 / 4</div>
+                  <img src="@Url.Content("~/img/01-Internal-Banner1050X466-3.jpg")" width="100%" height="300" />
+                  <div class="text"></div>
+              </div>
+
+              <div class="mySlides fade">
+                  <div class="numbertext">4 / 4</div>
+                  <img src="@Url.Content("~/img/20watchboom-1-articleLarge.jpg")" width="100%" height="300" />
+                  <div class="text">Rolex 2022</div>
+              </div>
+
+          </div>
+   
+          <div style="text-align:center">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+          </div>
+   
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Watches For Men</h2>
+            <a href="@Url.Action("Display", new { gender = "Men" } )">
+            <img src="@Url.Content("~/img/men_dis.jpg")" width="350" height="300" />
+            </a>
+        </div>
+        <div class="col-md-4">
+            <h2>Watches for Women</h2>
+            <a href="@Url.Action("Display", new { gender = "Women" } )">
+                <img src="@Url.Content("~/img/women_display.jpg")" width="350" height="300" />
+               
+                </a>
+        </div>
+        <div class="col-md-4">
+            <h2>Accessories</h2>
+            <a href="@Url.Action("Display",  new { category = "assesories" } )">
+                <img src="@Url.Content("~/img/asse_display.jpeg")" width="350" height="300" />
+            </a>
+        </div>
+    </div><br /><br />
+
+    <div class="row">
+        <h2>Our Featured Watches</h2>
+        @using (yazleyEntities1 db = new yazleyEntities1())
+        {
+
+            foreach (var item in db.products.Where(c => c.category.Equals("watch")))
+            {
+
+                <div class="col-md-2">
+                    <a href="Home/Details/@item.productId">
+                        <img src="@Url.Content(item.productImage)" width="200" height="300" />
+                        <p>@Html.DisplayFor(modelItem => item.productName)</p>
+                        <p>@Html.DisplayFor(modelItem => item.price)</p>
+                        <p>@Html.DisplayFor(modelItem => item.country_origin)</p>
+                    </a>
+                </div>
+            }
+
+        }
+    </div>
+    <br /><br />
+
+
+    <div style="background-color:black; color:aliceblue" id="contact" class="row">
+        <br />
+
+        <div class="col-md-4">
+            <h4>Luxury Watch Helpline:</h4>
+            <ul><li>+91 87250 28883 </li><li>+91 87250 28899</li></ul>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Online Orders Helpline:</h4>
+            <ul><li>+91 87250 28883 </li><li>+91 87250 28899</li></ul>
+        </div>
+
+        <div class="col-md-push-2">
+            <h4>Customer Care Number:</h4>
+            <ul><li>+91 87250 28883 </li></ul>
+        </div>
+        <br />
+        <div id="about" class="bottom">
+            <h3>About Yazley</h3>
+            <p>Yazley Watches is chain of luxury watch boutiques with premium stores across the country. We are authorised retailers of over luxury watch brands. We take pride in helping our customers choose the perfect watch for themselves or their loved ones, while protecting them from rampant malpractices in India such as smuggled, fake, and refurbished watches.</p>
+        </div>
+        <br />
+
+        <div><p>  Follow Yazley  <i class="fa fa-instagram">   </i>  <i class="fa fa-youtube"> </i>  <i class="fa fa-facebook"> </i>    <i class="fa fa-twitter"> </i> </p></div>
+    </div>
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+    </script>
+</body>
+</html>

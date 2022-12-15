@@ -1,0 +1,82 @@
+﻿@model Yazley_watch_boutique.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<style type="text/css">
+    input[type=text], [type=password] {
+        width: 90%;
+        padding: 10px;
+        border: 0;
+        box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+        border-radius: 10px;
+    }
+
+    input[type=submit] {
+        padding: 10px;
+        border: 0;
+        box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+        border-radius: 10px;
+    }
+
+    center {
+        margin: auto;
+        width: 35%;
+        height: 60%;
+        border: 0;
+        padding: 50px;
+        background-image: @Url.Content("~/img/women_display.jpg");
+        background-size: cover;
+    }
+</style>
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+<center>
+    <fieldset>
+        <legend>Login in Yazley</legend>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.Label("Username")</td>
+                <td>@Html.TextBoxFor(a => a.userName)</td>
+                <td>@Html.ValidationMessageFor(a => a.userName)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Label("Password")
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.password)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.password)
+                </td>
+            </tr>
+            <tr>
+
+                <td></td>
+                <td>
+                    <input type="submit" value="Login"/>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+
+                <td></td>
+            </tr>
+        </table>
+        <b>New to Yazley??  @Html.ActionLink("Signup", "addUser", "Home")</b>
+    </fieldset>
+</center>
+}

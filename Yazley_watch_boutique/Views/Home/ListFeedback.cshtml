@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Yazley_watch_boutique.Feedback>
+
+@{
+    ViewBag.Title = "ListFeedback";
+}
+<br />
+<h2>Customer Reviews</h2>
+
+<p>
+    @Html.ActionLink("Give Feedback", "Feedback")
+</p>
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => item.Username)
+        </th>
+        </tr><tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Discription)
+    </td>
+</tr>
+}
+</table>

@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="yazleyEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="boutiques">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="numeric" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="brand">
+          <Key>
+            <PropertyRef Name="brandName" />
+          </Key>
+          <Property Name="brandName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="brandImage" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="calibre">
+          <Key>
+            <PropertyRef Name="calibreId" />
+          </Key>
+          <Property Name="calibreId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="reference" Type="nvarchar" MaxLength="50" />
+          <Property Name="movement" Type="nvarchar" MaxLength="50" />
+          <Property Name="display" Type="nvarchar" MaxLength="50" />
+          <Property Name="base" Type="nvarchar" MaxLength="50" />
+          <Property Name="power_reserve" Type="nvarchar" MaxLength="50" />
+          <Property Name="jewells" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="frequency" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Discription" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Userid" Type="int" />
+          <Property Name="productName" Type="nvarchar(max)" />
+          <Property Name="productPrice" Type="int" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Contact" Type="numeric" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Name="productId" Type="int" Nullable="false" />
+          <Property Name="model_no" Type="nvarchar(max)" />
+          <Property Name="productName" Type="nvarchar" MaxLength="100" />
+          <Property Name="productImage" Type="nvarchar(max)" />
+          <Property Name="collection" Type="nvarchar" MaxLength="50" />
+          <Property Name="brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="price" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="axis" Type="nvarchar" MaxLength="50" />
+          <Property Name="feature1" Type="nvarchar" MaxLength="50" />
+          <Property Name="feature2" Type="nvarchar" MaxLength="50" />
+          <Property Name="feature3" Type="nvarchar" MaxLength="50" />
+          <Property Name="feature4" Type="nvarchar" MaxLength="50" />
+          <Property Name="calibreId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="case_shape" Type="nvarchar" MaxLength="50" />
+          <Property Name="case_material" Type="nvarchar" MaxLength="50" />
+          <Property Name="case_size" Type="nvarchar" MaxLength="50" />
+          <Property Name="lug_width" Type="nvarchar" MaxLength="50" />
+          <Property Name="glass_material" Type="nvarchar" MaxLength="50" />
+          <Property Name="luminocity" Type="nvarchar" MaxLength="50" />
+          <Property Name="dial_color" Type="nvarchar" MaxLength="50" />
+          <Property Name="indexes" Type="nvarchar" MaxLength="50" />
+          <Property Name="strap_material" Type="nvarchar" MaxLength="50" />
+          <Property Name="strap_color" Type="nvarchar" MaxLength="50" />
+          <Property Name="clasp_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="EAN" Type="nvarchar" MaxLength="50" />
+          <Property Name="gender" Type="char" MaxLength="6" />
+          <Property Name="water_resistence" Type="int" />
+          <Property Name="country_origin" Type="varchar" MaxLength="30" />
+          <Property Name="warrenty_period" Type="nvarchar" MaxLength="50" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+          <Property Name="material" Type="nvarchar" MaxLength="50" />
+          <Property Name="category" Type="nvarchar" MaxLength="50" />
+          <Property Name="size" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="thewatchguide">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="image" Type="nvarchar(max)" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="writer" Type="nvarchar(max)" />
+          <Property Name="date" Type="date" />
+          <Property Name="brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="category" Type="nvarchar" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="8" />
+          <Property Name="gender" Type="nchar" MaxLength="6" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="phone" Type="numeric" Precision="10" Scale="0" />
+        </EntityType>
+        <Association Name="FK__Order__Username__5CD6CB2B">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__product__brand__49C3F6B7">
+          <End Role="brand" Type="Self.brand" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brand">
+              <PropertyRef Name="brandName" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__product__calibre__4AB81AF0">
+          <End Role="calibre" Type="Self.calibre" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="calibre">
+              <PropertyRef Name="calibreId" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="calibreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="yazleyEntitiesStoreContainer">
+          <EntitySet Name="boutiques" EntityType="Self.boutiques" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="brand" EntityType="Self.brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="calibre" EntityType="Self.calibre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="thewatchguide" EntityType="Self.thewatchguide" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Order__Username__5CD6CB2B" Association="Self.FK__Order__Username__5CD6CB2B">
+            <End Role="User" EntitySet="User" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__product__brand__49C3F6B7" Association="Self.FK__product__brand__49C3F6B7">
+            <End Role="brand" EntitySet="brand" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__product__calibre__4AB81AF0" Association="Self.FK__product__calibre__4AB81AF0">
+            <End Role="calibre" EntitySet="calibre" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="yazleyEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="boutique">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="Decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="brand">
+          <Key>
+            <PropertyRef Name="brandName" />
+          </Key>
+          <Property Name="brandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="brandImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="products" Relationship="Self.FK__product__brand__29572725" FromRole="brand" ToRole="product" />
+        </EntityType>
+        <EntityType Name="calibre">
+          <Key>
+            <PropertyRef Name="calibreId" />
+          </Key>
+          <Property Name="calibreId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="reference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="movement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="display" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="base" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="power_reserve" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jewells" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="frequency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="products" Relationship="Self.FK__product__calibre__2A4B4B5E" FromRole="calibre" ToRole="product" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="productId" />
+          </Key>
+          <Property Name="productId" Type="Int32" Nullable="false" />
+          <Property Name="model_no" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="productName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="productImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="collection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="axis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="feature1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="feature2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="feature3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="feature4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="calibreId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="case_shape" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="case_material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="case_size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lug_width" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="glass_material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="luminocity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dial_color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="indexes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strap_material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strap_color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="clasp_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="water_resistence" Type="Int32" />
+          <Property Name="country_origin" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="warrenty_period" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="size" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="brand1" Relationship="Self.FK__product__brand__29572725" FromRole="product" ToRole="brand" />
+          <NavigationProperty Name="calibre" Relationship="Self.FK__product__calibre__2A4B4B5E" FromRole="product" ToRole="calibre" />
+        </EntityType>
+        <EntityType Name="thewatchguide">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="writer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="Orders" Relationship="yazleyEntities.FK__Order__Username__5CD6CB2B" FromRole="User" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK__product__brand__29572725">
+          <End Role="brand" Type="Self.brand" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brand">
+              <PropertyRef Name="brandName" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="brand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__product__calibre__2A4B4B5E">
+          <End Role="calibre" Type="Self.calibre" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="calibre">
+              <PropertyRef Name="calibreId" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="calibreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="yazleyEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="boutiques" EntityType="Self.boutique" />
+          <EntitySet Name="brands" EntityType="Self.brand" />
+          <EntitySet Name="calibres" EntityType="Self.calibre" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="thewatchguides" EntityType="Self.thewatchguide" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__product__brand__29572725" Association="Self.FK__product__brand__29572725">
+            <End Role="brand" EntitySet="brands" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__product__calibre__2A4B4B5E" Association="Self.FK__product__calibre__2A4B4B5E">
+            <End Role="calibre" EntitySet="calibres" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <EntitySet Name="Feedbacks" EntityType="yazleyEntities.Feedback" />
+          <EntitySet Name="Orders" EntityType="yazleyEntities.Order" />
+          <AssociationSet Name="FK__Order__Username__5CD6CB2B" Association="yazleyEntities.FK__Order__Username__5CD6CB2B">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Userid" Type="Int32" />
+          <Property Name="productName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="productPrice" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="User" Relationship="yazleyEntities.FK__Order__Username__5CD6CB2B" FromRole="Order" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__Order__Username__5CD6CB2B">
+          <End Type="yazleyEntities.User" Role="User" Multiplicity="0..1" />
+          <End Type="yazleyEntities.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="yazleyEntitiesStoreContainer" CdmEntityContainer="yazleyEntities1">
+          <EntitySetMapping Name="boutiques">
+            <EntityTypeMapping TypeName="yazleyEntities.boutique">
+              <MappingFragment StoreEntitySet="boutiques">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="brands">
+            <EntityTypeMapping TypeName="yazleyEntities.brand">
+              <MappingFragment StoreEntitySet="brand">
+                <ScalarProperty Name="brandName" ColumnName="brandName" />
+                <ScalarProperty Name="brandImage" ColumnName="brandImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="calibres">
+            <EntityTypeMapping TypeName="yazleyEntities.calibre">
+              <MappingFragment StoreEntitySet="calibre">
+                <ScalarProperty Name="calibreId" ColumnName="calibreId" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="movement" ColumnName="movement" />
+                <ScalarProperty Name="display" ColumnName="display" />
+                <ScalarProperty Name="base" ColumnName="base" />
+                <ScalarProperty Name="power_reserve" ColumnName="power_reserve" />
+                <ScalarProperty Name="jewells" ColumnName="jewells" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="yazleyEntities.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="productId" ColumnName="productId" />
+                <ScalarProperty Name="model_no" ColumnName="model_no" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="productImage" ColumnName="productImage" />
+                <ScalarProperty Name="collection" ColumnName="collection" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="axis" ColumnName="axis" />
+                <ScalarProperty Name="feature1" ColumnName="feature1" />
+                <ScalarProperty Name="feature2" ColumnName="feature2" />
+                <ScalarProperty Name="feature3" ColumnName="feature3" />
+                <ScalarProperty Name="feature4" ColumnName="feature4" />
+                <ScalarProperty Name="calibreId" ColumnName="calibreId" />
+                <ScalarProperty Name="case_shape" ColumnName="case_shape" />
+                <ScalarProperty Name="case_material" ColumnName="case_material" />
+                <ScalarProperty Name="case_size" ColumnName="case_size" />
+                <ScalarProperty Name="lug_width" ColumnName="lug_width" />
+                <ScalarProperty Name="glass_material" ColumnName="glass_material" />
+                <ScalarProperty Name="luminocity" ColumnName="luminocity" />
+                <ScalarProperty Name="dial_color" ColumnName="dial_color" />
+                <ScalarProperty Name="indexes" ColumnName="indexes" />
+                <ScalarProperty Name="strap_material" ColumnName="strap_material" />
+                <ScalarProperty Name="strap_color" ColumnName="strap_color" />
+                <ScalarProperty Name="clasp_type" ColumnName="clasp_type" />
+                <ScalarProperty Name="EAN" ColumnName="EAN" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="water_resistence" ColumnName="water_resistence" />
+                <ScalarProperty Name="country_origin" ColumnName="country_origin" />
+                <ScalarProperty Name="warrenty_period" ColumnName="warrenty_period" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="material" ColumnName="material" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thewatchguides">
+            <EntityTypeMapping TypeName="yazleyEntities.thewatchguide">
+              <MappingFragment StoreEntitySet="thewatchguide">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="writer" ColumnName="writer" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="category" ColumnName="category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="yazleyEntities.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="yazleyEntities.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="yazleyEntities.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="productPrice" ColumnName="productPrice" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

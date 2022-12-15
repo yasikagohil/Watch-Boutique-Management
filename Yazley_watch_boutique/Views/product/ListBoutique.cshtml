@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Yazley_watch_boutique.boutique>
+
+@{
+    ViewBag.Title = "ListBoutique";
+}
+<br />
+<h2>List of Boutiques</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateBoutique")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Name")
+        </th>
+        <th>
+            @Html.DisplayName("Address")
+        </th>
+        <th>
+            @Html.DisplayName("City")
+        </th>
+        <th>
+            @Html.DisplayName("Phone")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditBoutique", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteBoutique", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Yazley_watch_boutique.brand>
+
+@{
+    ViewBag.Title = "ListBrand";
+}
+<br />
+<h2>List of Brands</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddBrand")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Brand")
+        </th>
+        <th>
+            @Html.DisplayName("")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.brandName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brandImage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditBrand", new { id=item.brandName }) |
+            @Html.ActionLink("Details", "DetailsBrand", new { id=item.brandName }) |
+            @Html.ActionLink("Delete", "DeleteBrand", new { id=item.brandName })
+        </td>
+    </tr>
+}
+
+</table>

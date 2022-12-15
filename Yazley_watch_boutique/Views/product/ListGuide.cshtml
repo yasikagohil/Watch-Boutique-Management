@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Yazley_watch_boutique.thewatchguide>
+
+@{
+    ViewBag.Title = "ListGuide";
+}
+<br />
+<h2>The Watch Guide</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateGuide")
+</p>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="@Url.Action("DetailsGuide", new { id = item.Id })">
+                    <img src="@Url.Content(@item.image)" height="400" width="100%" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size:xx-large">
+                <span style="float:right; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+                    <span style="float:left; color:maroon; font-family:'Lucida Handwriting'"> @Html.DisplayFor(modelItem => item.category)   <i class="fa fa-minus" style="font-size:10px;"></i></span>
+                    @Html.DisplayFor(modelItem => item.title)
+                </span>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "EditGuide", new { id = item.Id }) |
+                @Html.ActionLink("Details", "DetailsGuide", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteGuide", new { id = item.Id })
+            </td>
+        </tr>    }
+
+</table>

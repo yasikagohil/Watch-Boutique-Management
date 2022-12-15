@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Yazley_watch_boutique.product>
+
+@{
+    ViewBag.Title = "Display";
+}
+<br /><br />
+<h2>Watch Collection</h2>
+
+<table class="table">
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td rowspan="7">
+                <img src="@Url.Content(item.productImage)" height="250" width="200" />
+            </td>
+        </tr>
+        <tr>
+            <td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:large">
+                <b>
+                    @Html.DisplayFor(modelItem => item.productName)
+                </b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.model_no)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.collection)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.brand1.brandName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button style="background-color:lightblue; width:300px; padding:10px; box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+        border-radius: 8px; border:0" value="Details">
+                    @Html.ActionLink("Details", "Details", new { id = item.productId })
+                </button>
+
+                <button style="background-color:lightblue; width:300px; padding:10px; box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+        border-radius: 8px; border:0">
+                    @Html.ActionLink("Check for Our Selling Price", "Inquiry", new { id = item.productId })
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
